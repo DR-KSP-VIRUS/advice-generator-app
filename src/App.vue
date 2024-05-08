@@ -1,47 +1,117 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref, onMounted } from "vue";
+import { fetchAdvice } from "./apis/adviceApi";
+
+
+const loading = ref(false);
+const slip = ref({});
+
+const handleRequest = async () => {
+  try {
+    loading.value = true;
+    const res = await fetchAdvice();
+    slip.value = res.slip;
+    loading.value = false;
+    
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+onMounted(async() => {
+  try {
+    loading.value = true;
+    const res = await fetchAdvice();
+    slip.value = res.slip;
+    loading.value = false;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    loading.value = false;
+  }
+});
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="loading" v-if="loading">Loading ...</div>
+  <main v-else>
+    <header>
+      <h1 class="title">Advice #{{ slip.id }}</h1>
+    </header>
+    <div class="content">
+      <p> &quot; {{ slip.advice }} &quot;</p>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
+    <figure></figure>
+    <button class="btn-green" @click="handleRequest">
+      <img src="./assets/icon-dice.svg" alt="button icon">
+    </button>
   </main>
 </template>
 
 <style scoped>
 header {
-  line-height: 1.5;
+  display: flex;
+  justify-content: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.title {
+  color: var(--neon-green);
+  font-size: 1.5rem;
 }
+
+.content {
+  text-align: center;
+  color: var(--light-cyan);
+  padding: 0 1.5rem;
+}
+
+figure {
+  display: flex;
+  align-items: center;
+  background: url("./assets/pattern-divider-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 100%;
+  height: 1rem;
+}
+
+button {
+  display: flex;
+  background-color: var(--neon-green);
+  color: var(--light-cyan);
+  padding: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  place-items: center;
+  bottom: -3.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 1px 20px var(--neon-green),
+  0 0px 1px var(--neon-green);
+}
+
+@media screen and (min-width: 1024px) {
+  figure {
+    background: url("./assets/pattern-divider-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 100%;
+  }
+
+  .content {
+    padding: 0 4rem;
+
+  }
+
+}
+
 </style>
