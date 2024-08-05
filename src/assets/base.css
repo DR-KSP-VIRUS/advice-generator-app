@@ -5,6 +5,7 @@
   border: none;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Manrope" sans-serif;
 }
 
 /* color palette from <https://github.com/vuejs/theme> */

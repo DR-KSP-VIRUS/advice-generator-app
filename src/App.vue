@@ -25,8 +25,7 @@ onMounted(async() => {
 </script>
 
 <template>
-  <div class="loading" v-if="loading">Loading ...</div>
-  <main v-else>
+  <main>
     <header>
       <h1 class="title">Advice #{{ slip.id }}</h1>
     </header>

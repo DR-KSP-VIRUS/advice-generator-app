@@ -1,29 +1,61 @@
-# advice-generator-app
+# Frontend Mentor - Advice generator app solution
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a solution to the [Advice generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Overview
 
-## Project Setup
+### The challenge
 
-```sh
-npm install
-```
+Users are able to:
 
-### Compile and Hot-Reload for Development
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Generate a new piece of advice by clicking the dice icon
 
-```sh
-npm run dev
-```
+### Screenshot
 
-### Compile and Minify for Production
+![mobile solution view](./design/mobile_view.jpeg)
+![desktop solution view](./design/desktop_view_active.jpeg)
 
-```sh
-npm run build
-```
+### Links
+
+- Solution URL: [Solution on Github](https://github.com/DR-KSP-VIRUS/advice-generator-app)
+- Live Site URL: [Advice live site](https://advice-generator-app-onmm.vercel.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Vue.js](https://nextjs.org/) - Vue framework
+
+
+### Useful resources
+
+- [vue.js](https://vuejs.org) - This helped me for building out the entire project
+
+
+## Author
+
+- Frontend Mentor - [@DR-KSP-VIRUS](https://www.frontendmentor.io/profile/DR-KSP-VIRUS)
+- Twitter - [@kuma_sampson](https://x.com/kuma_sampson)
+
