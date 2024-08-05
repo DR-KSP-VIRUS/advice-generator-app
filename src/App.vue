@@ -3,16 +3,12 @@ import { ref, onMounted } from "vue";
 import { fetchAdvice } from "./apis/adviceApi";
 
 
-const loading = ref(false);
 const slip = ref({});
 
 const handleRequest = async () => {
   try {
-    loading.value = true;
     const res = await fetchAdvice();
-    slip.value = res.slip;
-    loading.value = false;
-    
+    slip.value = res.slip;    
   } catch (error) {
     console.log(error);
   }
@@ -20,14 +16,10 @@ const handleRequest = async () => {
 
 onMounted(async() => {
   try {
-    loading.value = true;
     const res = await fetchAdvice();
     slip.value = res.slip;
-    loading.value = false;
   } catch (error) {
     console.log(error);
-  } finally {
-    loading.value = false;
   }
 });
 </script>
